@@ -5,6 +5,8 @@
 
 DCOM Lateral movement POC abusing the IMsiServer interface
 
+https://www.deepinstinct.com/blog/forget-psexec-dcom-upload-execute-backdoor
+
 The solution contains 2 projects
 
   
