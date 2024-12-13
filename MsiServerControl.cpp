@@ -87,9 +87,9 @@ HRESULT MsiUploadExec(IUnknown* pIMsiServerAuthen, COAUTHINFO* pAuthInfo)
 
 	
 	HANDLE hAsm = CreateFileW(asmblyPath, GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
-	if(!hAsm)
+	if(!hAsm or hAsm == INVALID_HANDLE_VALUE)
 	{
-		std::wcout << L"[-] ERROR: 0x" << std::hex << hr << L" Opening " << asmblyPath << std::endl;
+		std::wcout << L"[-] ERROR: 0x" << std::hex << GetLastError() << L" Opening " << asmblyPath << std::endl;
 		authedAction->Release();
 		pIMsiServerAuthen->Release();
 		return -1;
